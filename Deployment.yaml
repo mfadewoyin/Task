@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world-rest-deployment
+  name: hello-world-rest
   labels:
     app: hello-world-rest
 spec:
@@ -17,5 +17,19 @@ spec:
       containers:
       - name: hello-world-rest
         image: vad1mo/hello-world-rest
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
         ports:
-        - containerPort: 80
+        - containerPort: 5050
+        volumeMounts:
+        - mountPath: /log
+          name: data
+      volumes:
+       - name: data
+         persistentVolumeClaim:
+          claimName: my-test-pvc  
