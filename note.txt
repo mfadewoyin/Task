@@ -1,0 +1,6 @@
+Questions:
+Create a Kubernetes cluster (version 1.18+) with 2 nodes (with centos 7 on both nodes)
+1 master node and 1 worker node
+Create a simple deployment (hello-world-rest) of docker image: vad1mo/hello-world-rest with 3 replicas 
+Expose the REST API of the above docker image (5050 container port) on a NodePort of 31000 using a Kubernetes service
+Create a PVC (my-test-pvc) and bind it to a PV (my-pv) with host path /data/kubernetes/persistent-volume/my-pv with 5 GB storage
